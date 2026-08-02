@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sophia Hillard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #1e2b23;        
+    --bg2: #12201a;        
+    --bg3: #ece3d1;        
+    --ink: #211b14;        
+    --ink-light: #f4efe4;  
+    --muted: #877a67;      
+    --accent: #3f8a5c;     
+    --accent-soft: #a3703f;
+    --border: #3c2a1c;
+    --border-soft: #6b4a30;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  h1, h2, .nav-mark, .cv-toolbar-title, .cv-meta, .contact-link, .contact-link-label {
+    font-family: 'Lato', sans-serif;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 3rem;
+    background: rgba(244, 239, 228, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .nav-mark {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.25rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+  padding: 1.5rem 3rem 0 1.5rem;
+  border-bottom: 1px solid var(--border-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+ .hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  position: relative; 
+}
+
+.headshot-wrap {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-soft);
+  overflow: hidden;
+  background: var(--bg2);
+  position: relative;
+  flex-shrink: 0;
+}   
+ 
+ .headshot-wrap img {    
+  width: 100%;    
+  height: 100%;    
+  object-fit: cover;    
+  display: block;  
+    }   
+ 
+ .headshot-placeholder {    
+   width: 100%;    
+   height: 100%;    
+   display: flex;    
+   align-items: center;    
+   justify-content: center;    
+   font-family: 'Lato', sans-serif;     
+   font-size: 9px;    
+   letter-spacing: 0.06em;    
+   color: var(--ink-light);    
+   opacity: 0.6;
+   text-align: center;    
+   padding: 0.5rem;  
+     }   
+ 
+.hero-text h1 {
+  font-size: clamp(2.1rem, 3.6vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink-light);
+  position: relative;
+  margin-bottom: 0.6rem;
+}
+
+#hero-network {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 62%;
+  height: 62%;
+  z-index: 0;
+  margin-left: 0;
+  pointer-events: auto;
+}
+
+  .hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.15rem;
+    background: var(--accent-soft);
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--accent); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.15rem;
+    background: transparent;
+    color: var(--ink-light);
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--accent-soft);
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .about-text a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-soft);
+  }
+
+  .about-text a:hover { border-bottom-color: var(--accent); }
+
+
+  @media (max-width: 1000px) {
+    #hero-network { display: none; }
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 3rem;
+  }
+
+ 
+  .about-section {
+    background: var(--bg);
+    padding: 2.5rem 3rem;
+  }
+
+  .about-section .section-inner {
+    background: var(--bg3);
+    border: 1px solid var(--border-soft);
+    border-radius: 28px;
+    box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.5);
+    padding: 4rem 3.5rem;
+  }
+
+  .about-text p {
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 640px;
+  }
+
+  /* CV SECTION */
+  .cv-section { background: var(--bg); }
+
+  .cv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.75rem;
+  }
+
+  .cv-title {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--ink-light);
+  }
+
+  .cv-meta {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--accent-soft);
+  }
+
+  .cv-viewer-wrap {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .cv-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 1.1rem;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .cv-toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .cv-toolbar-title {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--ink-light);
+    opacity: 0.75;
+    margin-left: 0.5rem;
+  }
+
+  .cv-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    color: var(--ink-light);
+    text-decoration: none;
+    padding: 4px 10px;
+    border: 1px solid var(--accent-soft);
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+
+  .cv-download-btn:hover { background: var(--accent); border-color: var(--accent); }
+
+  .cv-embed {
+    width: 100%;
+    height: 85vh;
+    border: none;
+    display: block;
+  }
+
+
+  .contact-section {
+    background: var(--bg2);
+    border-top: 1px solid var(--border-soft);
+  }
+
+  .contact-heading {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--ink-light);
+    margin-bottom: 2rem;
+  }
+
+  .contact-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.65rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.15rem;
+    background: var(--bg3);
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    gap: 1rem;
+  }
+
+  .contact-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .contact-link-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .arrow { opacity: 0.4; font-size: 16px; flex-shrink: 0; }
+
+
+  footer {
+    padding: 1.75rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-soft);
+    background: var(--bg);
+  }
+
+  footer p {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    color: var(--accent-soft);
+  }
+
+  @media (max-width: 768px) {
+     nav {padding: 1.1rem 3rem 1.1rem 1.5rem;}
+    .nav-links { display: none; }
+    .hero { padding: 2.5rem 1.5rem 3rem; }
+    .hero-inner { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .headshot-wrap { width: 80px; height: 80px; }
+    .section-inner { padding: 3.5rem 1.5rem; }
+    .about-section { padding: 1.5rem 1.25rem; }
+    .about-section .section-inner { padding: 2.5rem 1.5rem; border-radius: 18px; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+
+<body>
+
+<nav>
+  <span class="nav-mark">Sophia Hillard</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#cv">CV</a></li>
+    <li><a href="#contact">Connect</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="headshot-wrap">
+      <img src="headshot.jpg" alt="Campbell Linker" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="headshot-placeholder" style="display:none;">add headshot.jpg</div>
+    </div>
+    <div class="hero-text">
+      <h1>Sophia Hillard</h1>
+      <div class="hero-actions">
+        <a href="#cv" class="btn-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          View CV
+        </a>
+        <a href="#contact" class="btn-secondary">Connect</a>
+      </div>
+    </div>
+    <div id="hero-network" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="about-section" id="about">
+  <div class="section-inner">
+    <div class="about-text">
+      <p>
+        I'm a junior analyst at <a href="https://www.claritycampaigns.com/">Clarity Campaign Labs</a> working with a team of data scientists and analysts to provide customized strategies and solutions, including modeling, polling, and other tools, to progressive campaigns and organizations. I am experienced in data analytics and in using data to create actionable insights and solutions that actually drive change and solve problems. 
+<br>
+I'm passionate about creating products that work for people, and I find that the most important work is often the work that happens after delivering a product. I'm interested in how documentation drives usage, how maintaining open relationships between developers and users allows for consistent reiteration and improvement, and how these processes can be improved with more attention and care.
+<br>
+My interests include using technology to improve the lives of working people and creating solutions using data that drive equitable access to tools that make our lives less difficult. In undergraduate studies, my research primarily organized around the implementation of data and LLMs as a tool to oppress, the political nature of data itself, and how to uphold equity in using statistical tools and data to explain the world that we live in. 
+
+    </p>
+    </div>
+  </div>
+</section>
+
+<section class="cv-section" id="cv">
+  <div class="section-inner">
+    <div class="cv-header">
+      <h2 class="cv-title">Curriculum Vitae</h2>
+      <span class="cv-meta">Last updated: <span id="cv-date">—</span></span>
+    </div>
+
+    <div class="cv-viewer-wrap">
+      <div class="cv-toolbar">
+        <div class="cv-toolbar-left">
+          <span class="cv-toolbar-title">cv.pdf</span>
+        </div>
+        <a href="cv.pdf" download class="cv-download-btn">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+      <iframe class="cv-embed" src="cv.pdf#zoom=75" title="Curriculum Vitae" aria-label="CV PDF viewer"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <h2 class="contact-heading">Connect</h2>
+
+    <div class="contact-links">
+        <a href="mailto:sophiahillard26@gmail.com" class="contact-link"> 
+        <div> 
+          <span class="contact-link-label">Email</span> 
+          <span>sophiahillard26@gmail.com</span> 
+        </div> 
+        <span class="arrow">→</span> 
+      </a> 
+
+       <a href="www.linkedin.com/in/sophia-hillard" class="contact-link">
+        <div>
+          <span class="contact-link-label">LinkedIn</span>
+          Sophia Hillard
+        </div>
+        <span class="arrow">→</span>
+      </a>
+     
+      <a href="https://github.com/s0ph1arh" class="contact-link">
+        <div>
+          <span class="contact-link-label">GitHub</span>
+          github.com/s0ph1arh
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Sophia Hillard</p>
+  <p>Updated regularly.</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const el = document.getElementById('cv-date');
+  if (el) {
+    el.textContent = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  }
+</script>
+
+<script>
+(function () {
+  var CONFIG = {
+    pointCount: 58,
+    rawColor: [95, 174, 125],
+    fitColor: [163, 112, 63],
+    cyclePeriodMs: 9000,
+    seed: 1337
+  };
+  var VB_W = 400, VB_H = 320;
+
+  var container = document.getElementById('hero-network');
+  if (!container) return;
+
+  var svgNS = 'http://www.w3.org/2000/svg';
+  var svg = document.createElementNS(svgNS, 'svg');
+  svg.setAttribute('viewBox', '0 0 ' + VB_W + ' ' + VB_H);
+  svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+  svg.style.width = '100%';
+  svg.style.height = '100%';
+  svg.style.display = 'block';
+  svg.style.overflow = 'visible';
+  container.style.position = 'relative';
+  container.style.cursor = 'crosshair';
+  container.appendChild(svg);
+
+  var _seed = CONFIG.seed >>> 0;
+  function rand() {
+    _seed = (_seed * 1664525 + 1013904223) >>> 0;
+    return _seed / 4294967296;
+  }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function easeInOutCubic(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+
+  var curveA = 40 + rand() * 30;
+  var curveB = 20 + rand() * 20;
+  var phase1 = rand() * Math.PI * 2;
+  var phase2 = rand() * Math.PI * 2;
+  function curveY(x) {
+    var xn = x / VB_W;
+    return VB_H * 0.52
+      + curveA * Math.sin(xn * Math.PI * 1.6 + phase1)
+      + curveB * Math.sin(xn * Math.PI * 3.1 + phase2);
+  }
+
+  var points = [];
+  for (var i = 0; i < CONFIG.pointCount; i++) {
+    var x = 16 + rand() * (VB_W - 32);
+    var base = curveY(x);
+    var rawY = base + (rand() - 0.5) * 190;
+    rawY = Math.max(10, Math.min(VB_H - 10, rawY));
+    var fitY = base + (rand() - 0.5) * 14;
+    points.push({
+      x: x,
+      rawY: rawY,
+      fitY: fitY,
+      r: 1.6 + rand() * 1.3,
+      offset: (rand() - 0.5) * 0.12
+    });
+  }
+  points.sort(function (a, b) { return a.x - b.x; });
+
+  var pointEls = points.map(function (p) {
+    var circle = document.createElementNS(svgNS, 'circle');
+    circle.setAttribute('cx', p.x.toFixed(1));
+    circle.setAttribute('r', p.r.toFixed(2));
+    svg.appendChild(circle);
+    return { el: circle, data: p };
+  });
+
+  var trendPath = document.createElementNS(svgNS, 'path');
+  var d = '';
+  for (var xi = 0; xi <= VB_W; xi += 8) {
+    d += (xi === 0 ? 'M ' : 'L ') + xi + ' ' + curveY(xi).toFixed(1) + ' ';
+  }
+  trendPath.setAttribute('d', d.trim());
+  trendPath.setAttribute('fill', 'none');
+  trendPath.setAttribute('stroke', 'rgb(' + CONFIG.fitColor.join(',') + ')');
+  trendPath.setAttribute('stroke-width', '1');
+  trendPath.style.opacity = '0';
+  svg.insertBefore(trendPath, svg.firstChild);
+
+  var mx = VB_W / 2, my = VB_H / 2, hovering = false;
+
+  container.addEventListener('mousemove', function (e) {
+    var rect = container.getBoundingClientRect();
+    mx = ((e.clientX - rect.left) / rect.width) * VB_W;
+    my = ((e.clientY - rect.top) / rect.height) * VB_H;
+    hovering = true;
+  });
+  container.addEventListener('mouseleave', function () { hovering = false; });
+
+  function frame(now) {
+    var raw = (Math.sin((now / CONFIG.cyclePeriodMs) * Math.PI * 2 - Math.PI / 2) + 1) / 2;
+    var t = easeInOutCubic(raw);
+
+    pointEls.forEach(function (item) {
+      var p = item.data;
+      var pt = Math.max(0, Math.min(1, t + p.offset));
+      var y = lerp(p.rawY, p.fitY, pt);
+      var color = [
+        Math.round(lerp(CONFIG.rawColor[0], CONFIG.fitColor[0], pt)),
+        Math.round(lerp(CONFIG.rawColor[1], CONFIG.fitColor[1], pt)),
+        Math.round(lerp(CONFIG.rawColor[2], CONFIG.fitColor[2], pt))
+      ];
+
+      var dist = Math.hypot(p.x - mx, y - my);
+      var prox = Math.max(0, 1 - dist / 90);
+      var baseOp = hovering ? 0.32 : 0.18;
+      var op = Math.min(1, baseOp + prox * 0.8 + pt * 0.15);
+      var r = p.r + prox * 2;
+
+      item.el.setAttribute('cy', y.toFixed(1));
+      item.el.setAttribute('r', r.toFixed(2));
+      item.el.setAttribute('fill', 'rgb(' + color.join(',') + ')');
+      item.el.style.opacity = op.toFixed(2);
+    });
+
+    trendPath.style.opacity = Math.pow(t, 4).toFixed(2);
+
+    requestAnimationFrame(frame);
+  }
+
+  requestAnimationFrame(frame);
+})();
+</script>
+
+</body>
+</html>
